@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const countdown = document.getElementById('countdown');
+		const timezoneOffset = new Date().getTimezoneOffset() * 60 * 1000;
+		const hackathonDate = new Date('2024-04-25T16:00:00Z') - timezoneOffset;
+		const interval = setInterval(() => {
+			const now = new Date();
+			const timeLeft = hackathonDate - now;
+			if (timeLeft < 0) {
+				clearInterval(interval);
+				countdown.style.display = 'none';
+				document.getElementById('alt-text').hidden = false;
+
+			} else {
+				const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+				document.getElementById('days').textContent = days;
+				document.getElementById('hours').textContent = hours;
+				document.getElementById('minutes').textContent = minutes;
+				document.getElementById('seconds').textContent = seconds;
+			}
+		}, 1000);
+	});
+</script>
+
+<Layout title="MHS Hackathon 2024">
+	<main>
+		<h1>MHS Hackathon <span class="text-gradient">2024</span></h1>
+		<div class="countdown" id="countdown">
+			<div id="days-div">
+				<span id="days" class="number">0</span>
+				<span class="label">days</span>
+			</div>
+			<div id="hours-div">
+				<span id="hours" class="number">0</span>
+				<span class="label">hours</span>
+			</div>
+			<div id="minutes-div">
+				<span id="minutes" class="number">0</span>
+				<span class="label">minutes</span>
+			</div>
+			<div id="seconds-div">
+				<span id="seconds" class="number">0</span>
+				<span class="label">seconds</span>
+			</div>
+		</div>
+		<h2 id="alt-text" hidden="true">The hackathon has <span class="text-gradient">started</span>!</h2>
+
+		<h3><span class="material-symbols-outlined">pin_drop</span> <a href="https://www.aisd.net/martin-high-school/">James Martin High School</a></h3>
+		<ul class="info">
+			<li>Date: April 13-14</li>
+			<li>Prizes: TBD</li>
+			<li>Judges: TBD</li>
+			<li><a href="https://en.wikipedia.org/wiki/Hackathon" target="_blank">What is a hackathon?</a></li>
+		</ul>
+		<a href="" class="button">Register</a>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+
+	h2 {
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-top: 1em;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-top: 1em;
+	}
+
+	a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+
+	.material-symbols-outlined {
+		vertical-align: bottom;
+		padding: 0 0.2em;
+	}
+
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-position: 0%;
+	}
+
+	.countdown {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row;
+		justify-content: space-evenly;
+		margin-bottom: 4em;
+	}
+
+	.countdown div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.number {
+		color: var(--primary);
+		text-shadow: 0 0 10px var(--primary);
+		font-size: 5rem;
+		font-weight: 700;
+		margin-bottom: -0.2em;
+	}
+
+	.label {
+		color: rgb(141, 141, 141);
+		font-style: italic;
+	}
+
+	.info {
+		list-style: none;
+		padding: 0;
+		text-align: center;
+	}
+
+	.info li {
+		margin: 0.5em 0;
+	}
+
+	.button {
+		width: 30%;
+		margin: auto;
+		margin-top: 2em;
+		display: block;
+		text-align: center;
+		padding: 0.6em;
+		background-color: var(--accent);
+		color: var(--text);
+		border: none;
+		border-radius: 10px;
+		font-size: 1.5rem;
+		font-weight: 700;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.button:hover {
+		background-color: var(--primary);
+	}
+
+	@media screen and (max-width: 600px) {
+		h1 {
+			font-size: 3rem;
+		}
+
+		.number {
+			font-size: 3rem;
+		}
+
+		.label {
+			font-size: 0.9rem;
+		}
+	}
+</style>
