@@ -4,29 +4,34 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
-		const countdown = document.getElementById('countdown');
-		const timezoneOffset = new Date().getTimezoneOffset() * 60 * 1000;
-		const hackathonDate = new Date('2024-04-25T16:00:00Z') - timezoneOffset;
-		const interval = setInterval(() => {
-			const now = new Date();
-			const timeLeft = hackathonDate - now;
-			if (timeLeft < 0) {
-				clearInterval(interval);
-				countdown.style.display = 'none';
-				document.getElementById('alt-text').hidden = false;
-
-			} else {
-				const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-				const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-				const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-				const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-				document.getElementById('days').textContent = days;
-				document.getElementById('hours').textContent = hours;
-				document.getElementById('minutes').textContent = minutes;
-				document.getElementById('seconds').textContent = seconds;
-			}
-		}, 1000);
+	
 	});
+
+	const countdown = document.getElementById('countdown');
+	const timezoneOffset = new Date().getTimezoneOffset() * 60 * 1000;
+	const hackathonDate = new Date('2024-04-25T16:00:00Z') - timezoneOffset;
+	const updateTime = () => {
+		const now = new Date();
+		const timeLeft = hackathonDate - now;
+		if (timeLeft < 0) {
+			clearInterval(interval);
+			countdown.style.display = 'none';
+			document.getElementById('alt-text').hidden = false;
+
+		} else {
+			const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+			const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+			const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+			const pad = (num) => num.toString().padStart(2, '0');
+			document.getElementById('days').textContent = pad(days);
+			document.getElementById('hours').textContent = pad(hours);
+			document.getElementById('minutes').textContent = pad(minutes);
+			document.getElementById('seconds').textContent = pad(seconds);
+		}
+	};
+	updateTime();
+	const interval = setInterval(updateTime, 1000);
 </script>
 
 <Layout title="MHS Hackathon 2024">
@@ -37,14 +42,17 @@ import Layout from '../layouts/Layout.astro';
 				<span id="days" class="number">0</span>
 				<span class="label">days</span>
 			</div>
+			<p class="separator">:</p>
 			<div id="hours-div">
 				<span id="hours" class="number">0</span>
 				<span class="label">hours</span>
 			</div>
+			<p class="separator">:</p>
 			<div id="minutes-div">
 				<span id="minutes" class="number">0</span>
 				<span class="label">minutes</span>
 			</div>
+			<p class="separator">:</p>
 			<div id="seconds-div">
 				<span id="seconds" class="number">0</span>
 				<span class="label">seconds</span>
@@ -52,7 +60,7 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 		<h2 id="alt-text" hidden="true">The hackathon has <span class="text-gradient">started</span>!</h2>
 
-		<h3><span class="material-symbols-outlined">pin_drop</span> <a href="https://www.aisd.net/martin-high-school/">James Martin High School</a></h3>
+		<h3><span class="material-symbols-outlined">pin_drop</span><a href="https://www.aisd.net/martin-high-school/" target="_blank">James Martin High School</a></h3>
 		<ul class="info">
 			<li>Date: April 13-14</li>
 			<li>Prizes: TBD</li>
@@ -60,6 +68,12 @@ import Layout from '../layouts/Layout.astro';
 			<li><a href="https://en.wikipedia.org/wiki/Hackathon" target="_blank">What is a hackathon?</a></li>
 		</ul>
 		<a href="" class="button">Register</a>
+
+		<div class="footer">
+			<p>Created by Alec Jensen</p>
+			<p>© 2024 Martin High School Computer Science Club</p>
+			<a href="https://github.com/alec-jensen/hackathon_website" target="_blank">View site on GitHub</a>
+		</div>
 	</main>
 </Layout>
 
@@ -88,6 +102,7 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1;
 		text-align: center;
 		margin-top: 1em;
+		font-family: monospace;
 	}
 
 	h3 {
@@ -96,11 +111,16 @@ import Layout from '../layouts/Layout.astro';
 		line-height: 1;
 		text-align: center;
 		margin-top: 1em;
+		font-family: monospace;
 	}
 
 	a {
 		color: var(--accent);
 		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
 	}
 
 	.material-symbols-outlined {
@@ -137,17 +157,29 @@ import Layout from '../layouts/Layout.astro';
 		font-size: 5rem;
 		font-weight: 700;
 		margin-bottom: -0.2em;
+		font-family: monospace;
+	}
+
+	.separator {
+		font-size: 5rem;
+		font-weight: 700;
+		margin-top: 0;
+		margin-bottom: 0.4em;
+		color: var(--primary);
+		text-shadow: 0 0 10px var(--primary);
 	}
 
 	.label {
 		color: rgb(141, 141, 141);
 		font-style: italic;
+		font-family: monospace;
 	}
 
 	.info {
 		list-style: none;
 		padding: 0;
 		text-align: center;
+		font-family: monospace;
 	}
 
 	.info li {
@@ -169,10 +201,26 @@ import Layout from '../layouts/Layout.astro';
 		font-weight: 700;
 		cursor: pointer;
 		transition: all 0.3s ease;
+		font-family: monospace;
 	}
 
 	.button:hover {
 		background-color: var(--primary);
+		text-decoration: none;
+	}
+
+	.footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		/* put items in row */
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		gap: 2em;
+		font-size: 0.9rem;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 
 	@media screen and (max-width: 600px) {
@@ -186,6 +234,32 @@ import Layout from '../layouts/Layout.astro';
 
 		.label {
 			font-size: 0.9rem;
+		}
+
+		.separator {
+			font-size: 3rem;
+		}
+
+		.button {
+			width: 50%;
+		}
+
+		.footer {
+			flex-direction: column;
+			text-align: center;
+			gap: 0.1em;
+			width: 100%;
+		}
+
+		.footer p {
+			margin: 0;
+			padding: 0;
+		}
+
+		.footer a {
+			font-size: 0.8rem;
+			margin: 0;
+			padding: 0;
 		}
 	}
 </style>

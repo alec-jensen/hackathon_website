@@ -17,7 +17,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<meta content="MHS Hackathon 2024" property="og:title" />
 		<meta content="MHS Hackathon 2024" property="og:site_name" />
-		<meta content="MHS Hackathon 2024" property="og:description" />
+		<meta content="Information for James Martin High School's 2024 Hackathon" property="og:description" />
 		<meta content="/favicon.webp" property="og:image" />
 		<title>{title}</title>
 	</head>
@@ -36,8 +36,9 @@ const { title } = Astro.props;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: var(--background);
-		background-size: 224px;
+		background: rgb(0,0,0);
+		background: linear-gradient(213deg, rgba(0,0,0,1) 0%, rgba(15,0,29,1) 100%);
+		background-attachment: fixed;
 	}
 	code {
 		font-family:
