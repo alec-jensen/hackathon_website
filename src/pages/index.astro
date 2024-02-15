@@ -4,34 +4,34 @@ import Layout from '../layouts/Layout.astro';
 
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
-	
+		const countdown = document.getElementById('countdown');
+		const hackathonDate = new Date('2024-04-25T16:00:00Z');
+		const updateTime = (interval = null) => {
+			const now = new Date();
+			const timeLeft = hackathonDate - now;
+			if (timeLeft < 0) {
+				if (interval) {
+					clearInterval(interval);
+				}
+
+				countdown.style.display = 'none';
+				document.getElementById('alt-text').hidden = false;
+
+			} else {
+				const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+				const pad = (num) => num.toString().padStart(2, '0');
+				document.getElementById('days').textContent = pad(days);
+				document.getElementById('hours').textContent = pad(hours);
+				document.getElementById('minutes').textContent = pad(minutes);
+				document.getElementById('seconds').textContent = pad(seconds);
+			}
+		};
+		updateTime();
+		const interval = setInterval(() => {updateTime(interval)}, 1000);
 	});
-
-	const countdown = document.getElementById('countdown');
-	const timezoneOffset = new Date().getTimezoneOffset() * 60 * 1000;
-	const hackathonDate = new Date('2024-04-25T16:00:00Z') - timezoneOffset;
-	const updateTime = () => {
-		const now = new Date();
-		const timeLeft = hackathonDate - now;
-		if (timeLeft < 0) {
-			clearInterval(interval);
-			countdown.style.display = 'none';
-			document.getElementById('alt-text').hidden = false;
-
-		} else {
-			const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-			const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-			const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-			const pad = (num) => num.toString().padStart(2, '0');
-			document.getElementById('days').textContent = pad(days);
-			document.getElementById('hours').textContent = pad(hours);
-			document.getElementById('minutes').textContent = pad(minutes);
-			document.getElementById('seconds').textContent = pad(seconds);
-		}
-	};
-	updateTime();
-	const interval = setInterval(updateTime, 1000);
 </script>
 
 <Layout title="MHS Hackathon 2024">
@@ -133,6 +133,10 @@ import Layout from '../layouts/Layout.astro';
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-position: 0%;
+	}
+
+	#alt-text {
+		margin-bottom: 2em;
 	}
 
 	.countdown {
