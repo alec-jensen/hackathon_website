@@ -14,12 +14,8 @@ const messages = {
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
-	console.log(data)
     const email = data.get("email");
-	console.log(email);
 
-	// Validate email
-	console.log(validateEmail(email));
 	if (!validateEmail(email)) {
 		throw new Error("Invalid email address");
 	}
@@ -36,17 +32,15 @@ if (Astro.request.method === "POST") {
 
 	const doc = await collection.findOne({ "email": email });
 
-	console.log(doc);
-
 	if (doc !== null) {
 		messages.status = "You are already registered!"
 	} else {
 		const result = await collection.insertOne({ "email": email });
 		
 		if (result.acknowledged) {
-		messages.status = "Registration successful!";
+			messages.status = "Registration successful!";
 		} else {
-		messages.status = "Registration failed. Please try again later.";
+			messages.status = "Registration failed. Please try again later.";
 		}
 	}
   } catch (error) {
