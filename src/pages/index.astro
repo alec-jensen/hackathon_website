@@ -79,6 +79,10 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	main {
+		display: flex;
+		flex-direction: column;
+		min-height: 95vh;
+		flex-grow: 1;
 		margin: auto;
 		padding: 1rem;
 		width: 800px;
@@ -214,17 +218,11 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.footer {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		/* put items in row */
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: space-between;
 		align-items: center;
-		gap: 2em;
+		margin-top: 2em;
 		font-size: 0.9rem;
-		left: 50%;
-		transform: translateX(-50%);
 	}
 
 	@media screen and (max-width: 600px) {
