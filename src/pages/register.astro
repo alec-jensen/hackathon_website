@@ -79,6 +79,9 @@ if (Astro.request.method === "POST") {
 
 <style>
 	main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		margin: auto;
 		padding: 1rem;
 		width: 800px;
@@ -116,6 +119,9 @@ if (Astro.request.method === "POST") {
 		border-radius: 10px;
 		font-size: 1.5rem;
 		font-family: monospace;
+		color: var(--text);
+		background-color: var(--background);
+		border: 2px solid var(--accent);
 	}
 
 	a {

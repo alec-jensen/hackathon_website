@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 interface Props {
 	title: string;
 }
@@ -25,30 +27,3 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--text: #ffffff;
-		--background: #090303;
-		--primary: #6d00db;
-		--secondary: #425a56;
-		--accent: #43a6e6;
-		--accent-gradient: linear-gradient(130deg, rgba(109,0,219,1) 0%, rgba(67,166,230,1) 100%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: rgb(0,0,0);
-		background: linear-gradient(213deg, rgba(0,0,0,1) 0%, rgba(15,0,29,1) 100%);
-		background-attachment: fixed;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

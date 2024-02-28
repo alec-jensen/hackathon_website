@@ -3,76 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Info from '../components/Info.astro';
 ---
 
-<script>
-	document.addEventListener("DOMContentLoaded", () => {
-		const countdown = document.getElementById('countdown');
-		const hackathonDate = new Date('2024-04-13T16:00:00Z');
-		const updateTime = (interval = null) => {
-			const now = new Date();
-			const timeLeft = hackathonDate - now;
-			if (timeLeft < 0) {
-				if (interval) {
-					clearInterval(interval);
-				}
-
-				countdown.style.display = 'none';
-				document.getElementById('alt-text').hidden = false;
-
-			} else {
-				const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-				const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-				const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-				const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-				const pad = (num) => num.toString().padStart(2, '0');
-				document.getElementById('days').textContent = pad(days);
-				document.getElementById('hours').textContent = pad(hours);
-				document.getElementById('minutes').textContent = pad(minutes);
-				document.getElementById('seconds').textContent = pad(seconds);
-			}
-		};
-		updateTime();
-		const interval = setInterval(() => {updateTime(interval)}, 1000);
-	});
-</script>
-
 <Layout title="MHS Hackathon 2024">
 	<main>
-		<h1>MHS Hackathon <span class="text-gradient">2024</span></h1>
-		<div class="countdown" id="countdown">
-			<div id="days-div">
-				<span id="days" class="number">0</span>
-				<span class="label">days</span>
-			</div>
-			<p class="separator">:</p>
-			<div id="hours-div">
-				<span id="hours" class="number">0</span>
-				<span class="label">hours</span>
-			</div>
-			<p class="separator">:</p>
-			<div id="minutes-div">
-				<span id="minutes" class="number">0</span>
-				<span class="label">minutes</span>
-			</div>
-			<p class="separator">:</p>
-			<div id="seconds-div">
-				<span id="seconds" class="number">0</span>
-				<span class="label">seconds</span>
-			</div>
-		</div>
-		<h2 id="alt-text" hidden="true">The hackathon has <span class="text-gradient">started</span>!</h2>
+		<h1>Information for MHS Hackathon <span class="text-gradient">2024</span></h1>
 
 		<Info />
-		
-		<div class="button-container">
-			<a href="/information" class="button">More Info</a>
-			<a href="/register" class="button">Register</a>
-		</div>
 
-		<div class="footer">
-			<p>Created by Alec Jensen</p>
-			<p>© 2024 Martin High School Computer Science Club</p>
-			<a href="https://github.com/alec-jensen/hackathon_website" target="_blank">View site on GitHub</a>
-		</div>
+		<a href="/">Go Home</a>
 	</main>
 </Layout>
 
@@ -81,6 +18,8 @@ import Info from '../components/Info.astro';
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
+		text-align: center;
 		min-height: 95vh;
 		flex-grow: 1;
 		margin: auto;
@@ -114,6 +53,7 @@ import Info from '../components/Info.astro';
 		font-weight: 700;
 		line-height: 1;
 		text-align: center;
+		margin-top: 1em;
 		font-family: monospace;
 	}
 
@@ -148,6 +88,7 @@ import Info from '../components/Info.astro';
 		align-items: center;
 		flex-direction: row;
 		justify-content: space-evenly;
+		margin-bottom: 4em;
 	}
 
 	.countdown div {
@@ -181,27 +122,10 @@ import Info from '../components/Info.astro';
 		font-family: monospace;
 	}
 
-	.info {
-		list-style: none;
-		padding: 0;
-		text-align: center;
-		font-family: monospace;
-	}
-
-	.info li {
-		margin: 0.5em 0;
-	}
-
-	.button-container {
-		display: flex;
-		justify-content: space-evenly;
-		margin-top: 2em;
-	}
-
 	.button {
 		width: 30%;
 		margin: auto;
-		margin-top: 1em;
+		margin-top: 2em;
 		display: block;
 		text-align: center;
 		padding: 0.6em;
@@ -214,7 +138,6 @@ import Info from '../components/Info.astro';
 		cursor: pointer;
 		transition: all 0.3s ease;
 		font-family: monospace;
-		width: 40%;
 	}
 
 	.button:hover {
