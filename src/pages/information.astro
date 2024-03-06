@@ -9,6 +9,20 @@ import Info from '../components/Info.astro';
 
 		<Info />
 
+		<p>
+			This is Martin's 6th annual hackathon!
+			We are excited to host this event and hope to see you there.
+			We will have a variety of workshops and mentors to help you learn and create.
+			We will also have a variety of prizes, worth over $100 in total.
+			We will also have free food and a free shirt for all participants.
+			We hope to see you there!
+		</p>
+
+		<img src="/shirt_design.png" alt="Shirt Design" />
+		<em>Shirt design</em>
+
+		<br>
+
 		<a href="/">Go Home</a>
 	</main>
 </Layout>
@@ -122,35 +136,18 @@ import Info from '../components/Info.astro';
 		font-family: monospace;
 	}
 
-	.button {
-		width: 30%;
-		margin: auto;
-		margin-top: 2em;
-		display: block;
-		text-align: center;
-		padding: 0.6em;
-		background-color: var(--accent);
-		color: var(--text);
-		border: none;
-		border-radius: 10px;
-		font-size: 1.5rem;
-		font-weight: 700;
-		cursor: pointer;
-		transition: all 0.3s ease;
-		font-family: monospace;
-	}
-
-	.button:hover {
-		background-color: var(--primary);
-		text-decoration: none;
-	}
-
 	.footer {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		margin-top: 2em;
 		font-size: 0.9rem;
+	}
+
+	img {
+		width: 100%;
+		max-width: 400px;
+		border-radius: 12px;
 	}
 
 	@media screen and (max-width: 600px) {
@@ -168,10 +165,6 @@ import Info from '../components/Info.astro';
 
 		.separator {
 			font-size: 3rem;
-		}
-
-		.button {
-			width: 50%;
 		}
 
 		.footer {
