@@ -12,6 +12,7 @@ const messages = {
 };
 
 if (Astro.request.method === "POST") {
+	throw new Error("Registration is now closed!");
   try {
     const data = await Astro.request.formData();
     const email = data.get("email");
@@ -54,7 +55,7 @@ if (Astro.request.method === "POST") {
 
 <Layout title="Register for MHS Hackathon 2024">
 	<main>
-		<form method="POST">
+		<!-- <form method="POST">
 			<h1>Register for MHS Hackathon <span class="text-gradient">2024</span></h1>
 			<p>
 				We are excited to announce that registration for MHS Hackathon 2024 is now open! The event will take place on
@@ -73,7 +74,13 @@ if (Astro.request.method === "POST") {
 			<p>Created by Alec Jensen</p>
 			<p>© 2024 Martin High School Computer Science Club</p>
 			<a href="https://github.com/alec-jensen/hackathon_website" target="_blank">View site on GitHub</a>
-		</div>
+		</div> -->
+
+		<h1>Registration is now closed!</h1>
+		<p>
+			Thank you for your interest in MHS Hackathon 2024! Registration is now closed. We hope to see you at the event!
+		</p>
+		<a href="/">Go Home</a>
 	</main>
 </Layout>
 

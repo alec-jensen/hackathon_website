@@ -65,7 +65,7 @@ import Info from '../components/Info.astro';
 		
 		<div class="button-container">
 			<a href="/information" class="button">More Info</a>
-			<a href="/register" class="button">Register</a>
+			<a class="button button-disabled">Registration closed.</a>
 		</div>
 
 		<div class="footer">
@@ -208,6 +208,15 @@ import Info from '../components/Info.astro';
 	.button:hover {
 		background-color: var(--primary);
 		text-decoration: none;
+	}
+
+	.button-disabled {
+		background-color: var(--accent-disabled);
+		cursor: not-allowed;
+	}
+
+	.button-disabled:hover {
+		background-color: var(--accent-disabled);
 	}
 
 	.footer {
