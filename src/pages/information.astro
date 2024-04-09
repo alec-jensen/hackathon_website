@@ -1,122 +1,106 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Info from '../components/Info.astro';
+import Layout from "../layouts/Layout.astro";
+import Info from "../components/Info.astro";
 ---
 
 <Layout title="MHS Hackathon 2024">
-	<main>
-		<h1>Information for MHS Hackathon <span class="text-gradient">2024</span></h1>
+  <main>
+    <h1>
+      Information for MHS Hackathon <span class="text-gradient">2024</span>
+    </h1>
 
-		<Info />
+    <Info />
 
-		<p>
-			This is Martin's 6th annual hackathon!
-			We are excited to host this event and hope to see you there.
-			We will have a variety of workshops and mentors to help you learn and create.
-			We will also have a variety of prizes, worth over $100 in total.
-			We will also have free food and a free shirt for all participants.
-			We hope to see you there!
-		</p>
-		
-		<h2>Schedule</h2>
+    <p>
+      This is Martin's 6th annual hackathon! We are excited to host this event
+      and hope to see you there. We will have a variety of workshops and mentors
+      to help you learn and create. We will also have a variety of prizes, worth
+      over $100 in total. We will also have free food and a free shirt for all
+      participants. We hope to see you there!
+    </p>
 
-		<p>
-			<strong>Saturday, April 13th</strong> <br>
-			9:15 am - Doors open, check-in, make teams, set up equipment
+    <h2>Schedule</h2>
 
-			10:00 am - Competition starts, announce prompt, begin workshop
-			
-			11:30 am - Pizza Lunch
-			
-			12:00 pm - Guest Speaker 1 (VP of Cybersecurity at Chase)
-			
-			2:00 pm - Guest Speaker 2 (FBI Representative Caroline Moolenaar)
-			
-			3:00 pm - Just Dance Tournament
-			
-			6:00 pm - Chick Fil A Dinner
-			
-			6:30 - 7:30 pm - Pickleball Tournament
-			
-			8:00 - 9:30 pm - Coding Competition
-			
-			10:00 pm - 12:00 am - CTF (Cybersecurity Competition)
-<br>
-<strong>Sunday, April 14th</strong> <br>
+    <p>
+      <strong>Saturday, April 13th</strong>
+      <br />
+      9:15 am - Doors open, check-in, make teams, set up equipment <br />
+      10:00 am - Competition starts, announce prompt, begin workshop <br />
+      11:30 am - Pizza Lunch <br />
+      12:00 pm - Guest Speaker 1 (VP of Cybersecurity at Chase) <br />
+      2:00 pm - Guest Speaker 2 (FBI Representative Caroline Moolenaar) <br />
+      3:00 pm - Just Dance Tournament <br />
+      6:00 pm - Chick Fil A Dinner <br />
+      6:30 - 7:30 pm - Pickleball Tournament <br />
+      8:00 - 9:30 pm - Coding Competition <br />
+      10:00 pm - 12:00 am - CTF (Cybersecurity Competition) <br />
+      <br />
+      <strong>Sunday, April 14th</strong>
+      <br />
+      12:30 am - Foosball Tournament <br />
+      1:00 am - Karaoke Night! <br />
+      8:30 am - Mexican Bakery Pastries <br />
+      11:00 am - Competition submission deadline <br />
+      11:00 am - Day 2 lunch <br />
+      12:00 - 3:30 pm - Student Presentations <br />
+      4:00 pm - Final Judging, Cleanup <br />
+      5:00 pm - Announce results and distribute prizes. Students may leave. <br
+      />
+    </p>
+    <img src="/shirt_design.png" alt="Shirt Design" />
+    <em>Shirt design</em>
 
-12:30 am - Foosball Tournament
+    <br />
 
-1:00 am - Karaoke Night!
-
-8:30 am - Mexican Bakery Pastries
-
-11:00 am - Competition submission deadline
-
-11:00 am - Day 2 lunch
-
-12:00 - 3:30 pm - Student Presentations
-
-4:00 pm - Final Judging, Cleanup
-
-5:00 pm - Announce results and distribute prizes. Students may leave.
-
-Get ready for unforgettable hours of creativity, collaboration, and coding! We can't wait to see you all at HackMHS 2024.
-
-(Most of this email was written by ChatGPT)
-		<img src="/shirt_design.png" alt="Shirt Design" />
-		<em>Shirt design</em>
-
-		<br>
-
-		<a href="/">Go Home</a>
-	</main>
+    <a href="/">Go Home</a>
+  </main>
 </Layout>
 
 <style>
-	main {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		min-height: 95vh;
-		flex-grow: 1;
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		/* color: white; */
-		font-size: 20px;
-		line-height: 1.6;
-	}
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 95vh;
+    flex-grow: 1;
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    /* color: white; */
+    font-size: 20px;
+    line-height: 1.6;
+  }
 
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
 
-	h2 {
-		font-size: 2rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-top: 1em;
-		/* font-family: monospace; */
-	}
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-top: 1em;
+    /* font-family: monospace; */
+  }
 
-	h3 {
-		font-size: 1.5rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-top: 1em;
-		/* font-family: monospace; */
-	}
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-top: 1em;
+    /* font-family: monospace; */
+  }
 
-	/* a {
+  /* a {
 		color: var(--accent);
 		text-decoration: none;
 	}
@@ -125,75 +109,75 @@ Get ready for unforgettable hours of creativity, collaboration, and coding! We c
 		text-decoration: underline;
 	} */
 
-	.material-symbols-outlined {
-		vertical-align: bottom;
-		padding: 0 0.2em;
-	}
+  .material-symbols-outlined {
+    vertical-align: bottom;
+    padding: 0 0.2em;
+  }
 
-	.text-gradient {
-		/* background-image: var(--accent-gradient);
+  .text-gradient {
+    /* background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-position: 0%; */
-	}
+  }
 
-	#alt-text {
-		margin-bottom: 2em;
-	}
+  #alt-text {
+    margin-bottom: 2em;
+  }
 
-	.label {
-		color: rgb(141, 141, 141);
-		font-style: italic;
-		/* font-family: monospace; */
-	}
+  .label {
+    color: rgb(141, 141, 141);
+    font-style: italic;
+    /* font-family: monospace; */
+  }
 
-	.footer {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-top: 2em;
-		font-size: 0.9rem;
-	}
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+    font-size: 0.9rem;
+  }
 
-	img {
-		width: 100%;
-		max-width: 400px;
-		border-radius: 12px;
-	}
+  img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+  }
 
-	@media screen and (max-width: 600px) {
-		h1 {
-			font-size: 3rem;
-		}
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 3rem;
+    }
 
-		.number {
-			font-size: 3rem;
-		}
+    .number {
+      font-size: 3rem;
+    }
 
-		.label {
-			font-size: 0.9rem;
-		}
+    .label {
+      font-size: 0.9rem;
+    }
 
-		.separator {
-			font-size: 3rem;
-		}
+    .separator {
+      font-size: 3rem;
+    }
 
-		.footer {
-			flex-direction: column;
-			text-align: center;
-			gap: 0.1em;
-			width: 100%;
-		}
+    .footer {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.1em;
+      width: 100%;
+    }
 
-		.footer p {
-			margin: 0;
-			padding: 0;
-		}
+    .footer p {
+      margin: 0;
+      padding: 0;
+    }
 
-		.footer a {
-			font-size: 0.8rem;
-			margin: 0;
-			padding: 0;
-		}
-	}
+    .footer a {
+      font-size: 0.8rem;
+      margin: 0;
+      padding: 0;
+    }
+  }
 </style>
