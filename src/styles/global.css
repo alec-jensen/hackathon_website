@@ -8,7 +8,6 @@
 	--accent-gradient: linear-gradient(130deg, rgba(109,0,219,1) 0%, rgba(67,166,230,1) 100%); */
 }
 html {
-	font-family: system-ui, sans-serif;
 	background: rgb(0,0,255);
 	background-image: url('/bg_new.png');
 	background-size: cover;
