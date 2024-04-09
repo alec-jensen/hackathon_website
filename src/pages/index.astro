@@ -38,7 +38,7 @@ import Info from '../components/Info.astro';
 
 <Layout title="MHS Hackathon 2024">
 	<main>
-		<h1>MHS Hackathon <span class="text-gradient">2024</span></h1>
+		<h1>MHS Hackathon 2024</h1>
 		<div class="countdown" id="countdown">
 			<div id="days-div">
 				<span id="days" class="number">0</span>
@@ -70,9 +70,9 @@ import Info from '../components/Info.astro';
 		</div>
 
 		<div class="footer">
-			<p>Created by Alec Jensen</p>
 			<p>© 2024 Martin High School Computer Science Club</p>
 			<a href="https://github.com/alec-jensen/hackathon_website" target="_blank">View site on GitHub</a>
+			<p>This site is <span style="color:red">NOT</span> a template :(</p>
 		</div>
 	</main>
 </Layout>
@@ -88,7 +88,7 @@ import Info from '../components/Info.astro';
 		padding: 1rem;
 		width: 800px;
 		max-width: calc(100% - 2rem);
-		color: white;
+		/* color: white; */
 		font-size: 20px;
 		line-height: 1.6;
 	}
@@ -107,7 +107,7 @@ import Info from '../components/Info.astro';
 		line-height: 1;
 		text-align: center;
 		margin-top: 1em;
-		font-family: monospace;
+		/* font-family: monospace; */
 	}
 
 	h3 {
@@ -115,17 +115,17 @@ import Info from '../components/Info.astro';
 		font-weight: 700;
 		line-height: 1;
 		text-align: center;
-		font-family: monospace;
+		/* font-family: monospace; */
 	}
 
-	a {
+	/* a {
 		color: var(--accent);
 		text-decoration: none;
 	}
 
 	a:hover {
 		text-decoration: underline;
-	}
+	} */
 
 	.material-symbols-outlined {
 		vertical-align: bottom;
@@ -164,7 +164,7 @@ import Info from '../components/Info.astro';
 		font-size: 5rem;
 		font-weight: 700;
 		margin-bottom: -0.2em;
-		font-family: monospace;
+		/* font-family: monospace; */
 	}
 
 	.separator {
@@ -179,7 +179,7 @@ import Info from '../components/Info.astro';
 	.label {
 		color: rgb(141, 141, 141);
 		font-style: italic;
-		font-family: monospace;
+		/* font-family: monospace; */
 	}
 
 	.button-container {
@@ -187,7 +187,7 @@ import Info from '../components/Info.astro';
 		justify-content: space-evenly;
 	}
 
-	.button {
+	/* .button {
 		width: 30%;
 		margin: auto;
 		margin-top: 1em;
@@ -204,25 +204,24 @@ import Info from '../components/Info.astro';
 		transition: all 0.3s ease;
 		font-family: monospace;
 		width: 40%;
+		text-decoration: underline;
 	}
 
 	.button:hover {
 		background-color: var(--primary);
-		text-decoration: none;
-	}
+	} */
 
 	.button-disabled {
-		background-color: var(--accent-disabled);
 		cursor: not-allowed;
 	}
 
 	.button-disabled:hover {
-		background-color: var(--accent-disabled);
+		text-decoration: none;
 	}
 
 	.footer {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-evenly;
 		align-items: center;
 		margin-top: 2em;
 		font-size: 0.9rem;
